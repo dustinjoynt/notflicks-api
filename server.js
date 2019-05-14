@@ -5,6 +5,8 @@ const knex = require('knex')
 const bcrypt = require('bcrypt')
 
 const signin = require('./controllers/signin')
+const register = require('./controllers/register')
+const movies = require('./controllers/movies')
 //register page
 
 //sign in page
@@ -38,7 +40,8 @@ app.use(cors())
 
 app.get('/', (req, res) => { res.send('It is working') })
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) })
-app.put('/register'), (req, res) => { register.handleRegister(req, res, db, bcrypt) }
+app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+app.post('/movies', (req, res) => { movies.handleMovies(req, res, db)})
 
 app.listen(3002, () => {
   console.log('App is running on port 3002')
