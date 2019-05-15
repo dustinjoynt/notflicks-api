@@ -13,6 +13,7 @@ const handleMovies = (req, res, db) => {
   .catch(err => status(400).json('Unable to save movies'))
 }
 
+
 module.exports = {
   handleMovies: handleMovies
 }
