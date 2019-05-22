@@ -7,10 +7,11 @@ const handleMovies = (req, res, db) => {
   })
   .into('saved_movies')
   .returning('*')
-  .then( movie => {
+  .then( movie => { console.log(movie[0])
     res.json(movie[0])
   })
-  .catch(err => status(400).json('Unable to save movies'))
+  // .then(res => status(200).json('sucess mofo'))
+  .catch(err => res.status(400).json('Unable to save movies'))
 }
 
 
