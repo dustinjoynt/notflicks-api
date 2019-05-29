@@ -25,7 +25,7 @@ const db = knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
-    user: 'dustinjoynt',
+    user: 'forestp',
     password: '',
     database: 'notflicks'
   }
@@ -60,5 +60,5 @@ app.post('/remove', (req, res) => {
 })
 
 app.listen(4000, () => {
-  console.log('App is running on port 4000')
+  console.log('🚀 App is running on port 4000 🚀')
 })
