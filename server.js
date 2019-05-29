@@ -8,7 +8,7 @@ const signin = require('./controllers/signin')
 const register = require('./controllers/register')
 const movies = require('./controllers/movies')
 const user = require('./controllers/user')
-const remove =require('./controllers/remove')
+const remove = require('./controllers/remove')
 //register page
 
 //sign in page
@@ -24,8 +24,8 @@ const remove =require('./controllers/remove')
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1' ,
-    user: 'dustinjoynt',
+    host: '127.0.0.1',
+    user: 'forestp',
     password: '',
     database: 'notflicks'
   }
@@ -40,12 +40,24 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => { res.send('It is working') })
-app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) })
-app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
-app.post('/movies', (req, res) => { movies.handleMovies(req, res, db)})
-app.get('/user/:id', (req, res) => { user.handleUser(req, res, db) })
-app.post('/remove', (req, res)=> { remove.handleRemove(req, res, db) })
+app.get('/', (req, res) => {
+  res.send('It is working')
+})
+app.post('/signin', (req, res) => {
+  signin.handleSignIn(req, res, db, bcrypt)
+})
+app.post('/register', (req, res) => {
+  register.handleRegister(req, res, db, bcrypt)
+})
+app.post('/movies', (req, res) => {
+  movies.handleMovies(req, res, db)
+})
+app.get('/user/:id', (req, res) => {
+  user.handleUser(req, res, db)
+})
+app.post('/remove', (req, res) => {
+  remove.handleRemove(req, res, db)
+})
 
 app.listen(process.env.PORT || 4000, () => {
   console.log(`App is running on port ${process.env.PORT}`)
