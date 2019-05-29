@@ -47,6 +47,6 @@ app.post('/movies', (req, res) => { movies.handleMovies(req, res, db)})
 app.get('/user/:id', (req, res) => { user.handleUser(req, res, db) })
 app.post('/remove', (req, res)=> { remove.handleRemove(req, res, db) })
 
-app.listen(4000, () => {
-  console.log('App is running on port 4000')
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`App is running on port ${process.env.PORT}`)
 })
