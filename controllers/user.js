@@ -5,7 +5,7 @@ const handleUser = (req, res, db) => {
     if (user.length) {
       res.json(user)
     } else {
-      res.status(400).json([])
+      res.status(200).json([])
     }
   })
   .catch(err => res.status(400).json('Error getting user'))

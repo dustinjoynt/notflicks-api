@@ -2,6 +2,7 @@ const handleMovies = (req, res, db) => {
   const {id, movie_id, movies_data} = req.body
   db.insert({
     id: id,
+    movie_user: `${id}-${movie_id}`,
     movie_id: movie_id,
     movies_data: movies_data
   })
